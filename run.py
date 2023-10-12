@@ -6,9 +6,8 @@ for x in range(0, 6):
     board.append(["-"] * 6)
 
 def print_board(board):
-    print(" ", " ".join("123456"))
-    for letter, row in zip("ABCDEF", board):
-        print(letter, " ".join(row))
+  for row in board:
+    print(" ".join(row))
 
 def random_row(board):
   return randint(0, len(board) - 1)
@@ -16,7 +15,10 @@ def random_row(board):
 def random_column(board):
   return randint(0, len(board[0]) - 1)
 
+
 ship_row = random_row(board)
-ship_colunm = random_column(board)
+ship_column = random_column(board)
 
-
+print_board(board)
+print(ship_row)
+print(ship_column)
