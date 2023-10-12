@@ -22,3 +22,6 @@ ship_column = random_column(board)
 print_board(board)
 print(ship_row)
 print(ship_column)
+
+guess_row = input("Guess ship row ")
+guess_column = input("Guess shop column ")
