@@ -23,5 +23,11 @@ print_board(board)
 print(ship_row)
 print(ship_column)
 
-guess_row = input("Guess ship row ")
-guess_column = input("Guess shop column ")
+input_row = int(input("Guess ship row:"))
+input_column = int(input("Guess ship column:"))
+
+
+if input_row == ship_row and input_column == ship_column:
+    print("You sunk my battleship")
+else:
+    print("you missed")    
