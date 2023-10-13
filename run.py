@@ -21,8 +21,8 @@ print(ships)
 
 for turn in range(4):
     print(f"Turn {turn + 1}")
-    guess_row = int(input("Guess Row: "))
-    guess_col = int(input("Guess Col: "))
+    guess_row = int(input("Guess Row: \n"))
+    guess_col = int(input("Guess Col: \n"))
     if (guess_row, guess_col) in ships[0]:
         print("You sunk a battleship!")
         board[guess_row][guess_col] = "0"
