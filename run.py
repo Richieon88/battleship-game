@@ -30,4 +30,17 @@ for turn in range(4):
         ships[0] = [coord for coord in ships[0] if coord != (guess_row, guess_col)]
         if not ships[0]:
             print("All battleships destroyed! You win!")
-        
+            break
+    else:
+        if guess_row not in range(5) or guess_col not in range(5):
+                print("Thats not even on the board")
+        elif board[guess_row][guess_col] == "X":
+                print("You already guessed that location.")
+                print_board(board)
+        elif board[guess_row][guess_col] == "O":
+                print("You already got that ship.")
+                print_board(board)
+        else:
+            print("You missed the battleships!")
+            board[guess_row][guess_col] = "X"
+            print_board(board)       
