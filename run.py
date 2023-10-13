@@ -30,4 +30,6 @@ input_column = int(input("Guess ship column:"))
 if input_row == ship_row and input_column == ship_column:
     print("You sunk my battleship")
 else:
-    print("you missed")    
+    print("you missed")
+    board[input_row][input_column] = "X"
+    print_board(board)    
