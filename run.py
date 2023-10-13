@@ -25,6 +25,8 @@ for turn in range(4):
     guess_col = int(input("Guess Col: "))
     if (guess_row, guess_col) in ships[0]:
         print("You sunk a battleship!")
+        board[guess_row][guess_col] = "0"
+        print_board(board)
         ships[0] = [coord for coord in ships[0] if coord != (guess_row, guess_col)]
         if not ships[0]:
             print("All battleships destroyed! You win!")
