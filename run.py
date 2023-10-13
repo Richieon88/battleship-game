@@ -15,7 +15,11 @@ def place_ship(board):
 
 print("Let's play Battleship!")
 print_board(board)
-
 ships = [(place_ship(board), place_ship(board), place_ship(board))]
+print(ships)
 guess_row = int(input("Guess Row: "))
 guess_col = int(input("Guess Column: "))
+
+if (guess_row, guess_col) in ships[0]:
+        print("You sunk a battleship!")
+        
