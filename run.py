@@ -34,13 +34,12 @@ for turn in range(4):
     else:
         if guess_row not in range(5) or guess_col not in range(5):
                 print("Thats not even on the board")
-        elif board[guess_row][guess_col] == "X":
-                print("You already guessed that location.")
-                print_board(board)
-        elif board[guess_row][guess_col] == "O":
-                print("You already got that ship.")
-                print_board(board)
+        elif board[guess_row][guess_col] in ["X", "0"]:
+            print("You already guessed that location.")
         else:
             print("You missed the battleships!")
             board[guess_row][guess_col] = "X"
-            print_board(board)       
+            print_board(board)
+
+    if turn == 3:
+        print("Out of turns! Game Over.")        
