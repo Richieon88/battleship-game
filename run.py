@@ -1,11 +1,14 @@
 from random import randint
 
-def build_board(dims):
-    return [['-' for count in range(dims)] for count in range(dims)]
+board = [['-' for _ in range(5)] for _ in range(5)]
+
 
 def print_board(board):
-    for b in board:
-        print(*b)
+    for row in board:
+        print(" ".join(row))
 
-board = build_board(6)
-print_board(board)           
+def place_battleship(board):
+    row = random.randint(0, 4)
+    col = random.randint(0, 4)
+    return (row, col)
+
