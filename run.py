@@ -17,9 +17,15 @@ print("Let's play Battleship!")
 print_board(board)
 ships = [(place_ship(board), place_ship(board), place_ship(board))]
 print(ships)
-guess_row = int(input("Guess Row: "))
-guess_col = int(input("Guess Column: "))
 
-if (guess_row, guess_col) in ships[0]:
+
+for turn in range(4):
+    print(f"Turn {turn + 1}")
+    guess_row = int(input("Guess Row: "))
+    guess_col = int(input("Guess Col: "))
+    if (guess_row, guess_col) in ships[0]:
         print("You sunk a battleship!")
+        ships[0] = [coord for coord in ships[0] if coord != (guess_row, guess_col)]
+        if not ships[0]:
+            print("All battleships destroyed! You win!")
         
