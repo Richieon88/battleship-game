@@ -9,10 +9,19 @@ def print_board(board):
         print(" ".join(row))
 
 def place_ship(board):
-    row = random.randint(0, 4)
-    col = random.randint(0, 4)
-    return (row, col)
-
+    while True:
+        try:
+            row = int(input("Enter the row to place your ship (0-4): "))
+            col = int(input("Enter the column to place your ship (0-4): "))
+            if 0 <= row <= 4 and 0 <= col <= 4 and board[row][col] == '-':
+                return (row, col)
+            if 0 <= row <= 4 and 0 <= col <= 4 and board[row][col] == '-':
+                return (row, col)
+            else:
+                print("Invalid placement. Try again.")
+        except ValueError:
+            print("Invalid input. Enter numbers between 0 and 4.")
+   
 
 print("Let's play Battleship!")
 print_board(board)
