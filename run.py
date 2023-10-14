@@ -33,27 +33,22 @@ print("Computer is placing its ships.")
 for _ in range(3):
     ship_row, ship_col = place_ship(board_computer)
 
-for turn in range(4):
+player_ships = set()
+computer_ships = set()
+
+for turn in range(8):
     print(f"Turn {turn + 1}")
+
+    print("Your turn")
     guess_row = int(input("Guess Row: \n"))
     guess_col = int(input("Guess Col: \n"))
-    if (guess_row, guess_col) in ships[0]:
-        print("You sunk a battleship!")
-        board[guess_row][guess_col] = "0"
-        print_board(board)
-        ships[0] = [coord for coord in ships[0] if coord != (guess_row, guess_col)]
-        if not ships[0]:
-            print("All battleships destroyed! You win!")
-            break
+    
+    if (guess_row, guess_col) in computer_ships[0]:
+        print("You hit a battleship!")
+        board_computer[guess_row][guess_col] = "H"
+        computer_ships.remove((guess_row, guess_col))
+        print_board(board_computer)
     else:
-        if guess_row not in range(5) or guess_col not in range(5):
-                print("Thats not even on the board")
-        elif board[guess_row][guess_col] in ["X", "0"]:
-            print("You already guessed that location.")
-        else:
-            print("You missed the battleships!")
-            board[guess_row][guess_col] = "X"
-            print_board(board)
-
-    if turn == 3:
-        print("Out of turns! Game Over.")        
+        print("You missed!")
+        board_computer[guess_row][guess_col] = "H"
+        print_board(board_computer)
