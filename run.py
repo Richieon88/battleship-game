@@ -23,11 +23,15 @@ def place_ship(board):
             print("Invalid input. Enter numbers between 0 and 4.")
    
 
-print("Let's play Battleship!")
-print_board(board)
-ships = [(place_ship(board), place_ship(board), place_ship(board))]
-print(ships)
+print("Place your ships.")
+for _ in range(3):
+    ship_row, ship_col = place_ship(board_player)
+    board_player[ship_row][ship_col] = "S"
+    print_board(board_player)
 
+print("Computer is placing its ships.")
+for _ in range(3):
+    ship_row, ship_col = place_ship(board_computer)
 
 for turn in range(4):
     print(f"Turn {turn + 1}")
