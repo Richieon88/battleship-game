@@ -1,6 +1,7 @@
 import random
 
-board = [['-' for _ in range(5)] for _ in range(5)]
+board_player = [['-' for _ in range(5)] for _ in range(5)]
+board_computer = [['-' for _ in range(5)] for _ in range(5)]
 
 
 def print_board(board):
