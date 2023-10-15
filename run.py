@@ -56,6 +56,7 @@ for turn in range(8):
         print_board(board_computer)
     else:
         print("You missed!")
+        print_board(board_computer)
         board_computer[player_guess_row][player_guess_col] = "X"
 
     if not computer_ships:
@@ -83,4 +84,3 @@ for turn in range(8):
     if not player_ships:
         print("Computer wins! It has destroyed all of your ships.")
         break  # Computer wins, exit the loop
-    
