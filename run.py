@@ -52,9 +52,11 @@ for turn in range(8):
         print("You missed!")
         board_computer[guess_row][guess_col] = "H"
         print_board(board_computer)
+    
     if not computer_ships:
         print("You win! You've destroyed all of the computer's ships.")
         break
+    
     if not computer_ships:
         print("You win! You've destroyed all of the computer's ships.")
         break
@@ -69,3 +71,12 @@ for turn in range(8):
         board_player[guess_row][guess_col] = "H"
         player_ships.remove((guess_row, guess_col))
         print_board(board_player)
+
+    else:
+        print("Computer missed.")
+        board_player[guess_row][guess_col] = "X"
+        print_board(board_player)
+
+    if not player_ships:
+        print("Computer wins! It has destroyed all of your ships.")
+        break    
