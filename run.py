@@ -43,26 +43,27 @@ computer_ships = {"S1", "S2", "S3"}
 for turn in range(8):
     print(f"Turn {turn + 1}")
     # Player's Turn
+    print_board(board_computer)  # Display the computer board
     print("Your turn")
     player_guess_row = int(input("Guess Row: "))
     player_guess_col = int(input("Guess Col: "))
 
     target = board_computer[player_guess_row][player_guess_col]
     if target in computer_ships:
-        print(f"You hit the {target} battleship!")
+        print(f"You hit a battleship!")
         board_computer[player_guess_row][player_guess_col] = "H"
         computer_ships.remove(target)
         print_board(board_computer)
     else:
         print("You missed!")
         board_computer[player_guess_row][player_guess_col] = "X"
-        print_board(board_computer)
 
     if not computer_ships:
         print("You win! You've destroyed all of the computer's ships.")
         break  # Player wins, exit the loop
 
     # Computer Turn
+    print_board(board_player)  # Display the player board
     print("Computer's Turn")
     while True:
         computer_guess_row = random.randint(0, 4)
@@ -72,15 +73,14 @@ for turn in range(8):
 
     target = board_player[computer_guess_row][computer_guess_col]
     if target in player_ships:
-        print(f"Computer hit your {target} battleship!")
+        print(f"Computer hit your battleship!")
         board_player[computer_guess_row][computer_guess_col] = "H"
         player_ships.remove(target)
-        print_board(board_player)
     else:
-        print("Computer missed.")
+        print("Computer missed!")
         board_player[computer_guess_row][computer_guess_col] = "X"
-        print_board(board_player)
 
     if not player_ships:
         print("Computer wins! It has destroyed all of your ships.")
         break  # Computer wins, exit the loop
+    
