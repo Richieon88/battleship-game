@@ -31,7 +31,10 @@ for _ in range(3):
 
 print("Computer is placing its ships.")
 for _ in range(3):
-    ship_row, ship_col = place_ship(board_computer)
+    ship_row, ship_col = random.randint(0, 4), random.randint(0, 4)
+    while board_computer[ship_row][ship_col] != '-':
+        ship_row, ship_col = random.randint(0, 4), random.randint(0, 4)
+    board_computer[ship_row][ship_col] = "S"
 
 player_ships = set()
 computer_ships = set()
@@ -43,7 +46,7 @@ for turn in range(8):
     guess_row = int(input("Guess Row: \n"))
     guess_col = int(input("Guess Col: \n"))
     
-    if (guess_row, guess_col) in computer_ships[0]:
+    if (guess_row, guess_col) in computer_ships:
         print("You hit a battleship!")
         board_computer[guess_row][guess_col] = "H"
         computer_ships.remove((guess_row, guess_col))
@@ -62,7 +65,7 @@ for turn in range(8):
         break
 
     #Computer Turn
-    Print("Computers Turn")
+    print("Computers Turn")
     guess_row = random.randint(0, 4)
     guess_col = random.randint(0, 4)
 
@@ -79,4 +82,7 @@ for turn in range(8):
 
     if not player_ships:
         print("Computer wins! It has destroyed all of your ships.")
-        break    
+        break
+
+    player_ships.add((guess_row, guess_col))
+    computer_ships.add((guess_row, guess_col))    
