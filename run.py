@@ -37,8 +37,8 @@ for ship_symbol in ["S1", "S2", "S3"]:
             board_computer[ship_row][ship_col] = ship_symbol
             break
 
-player_ships = {"S1", "S2", "S3"}
-computer_ships = {"S1", "S2", "S3"}
+player_ships = {"P1", "P2", "P3"}
+computer_ships = {"C1", "C2", "C3"}
 
 for turn in range(8):
     print(f"Turn {turn + 1}")
@@ -77,9 +77,11 @@ for turn in range(8):
         print(f"Computer hit your battleship!")
         board_player[computer_guess_row][computer_guess_col] = "H"
         player_ships.remove(target)
+        print_board(board_player)
     else:
         print("Computer missed!")
         board_player[computer_guess_row][computer_guess_col] = "X"
+        print_board(board_player)
 
     if not player_ships:
         print("Computer wins! It has destroyed all of your ships.")
