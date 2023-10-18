@@ -45,14 +45,14 @@ def validate_guess(guesses_made):
                 continue
             break
         while True:
-            col = input("Guess Row: ")
+            col = input("Guess Column: ")
             try:
                 col = int(col)
             except ValueError:
                 # print("Invalid input! Choose 0-4!\n")
                 print(UP_FRONT_LINE + LINE_FLUSH + "Invalid input! Choose 0-4!")
                 continue
-            if col not in range(4):
+            if col not in range(5):
                 # print("Invalid input! Choose 0-4!\n")
                 print(UP_FRONT_LINE + LINE_FLUSH + "Invalid input! Choose 0-4!")
                 continue
