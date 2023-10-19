@@ -32,17 +32,21 @@ def display_boards(player_board, computer_board, message):
         print(f"{player_row_str:15}{' ' * 5}{computer_row_str}")
     print(message)
 
-def player_turn(board_player, board_computer, computer_ships):
+def player_turn(board_player, board_computer, computer_ships, guessed_locations):
     display_boards(board_player, board_computer, "Your turn")
-    player_guess_row, player_guess_col = validate_guess([])
+    player_guess_row, player_guess_col = validate_guess(guessed_locations)
 
     target = board_computer[player_guess_row][player_guess_col]
-    print(target)
-    if target in computer_ships:
+
+    if (player_guess_row, player_guess_col) in guessed_locations:
+        display_boards(board_player, board_computer, "You have already guessed this location!")
+    elif target in computer_ships:
         board_computer[player_guess_row][player_guess_col] = "H"
         computer_ships.remove(target)
+        guessed_locations.add((player_guess_row, player_guess_col))
         display_boards(board_player, board_computer, "You hit a battleship!")
     else:
+        guessed_locations.add((player_guess_row, player_guess_col))
         display_boards(board_player, board_computer, "You missed!")
         board_computer[player_guess_row][player_guess_col] = "X"
 
@@ -121,6 +125,7 @@ def main():
             return
         else:
             print("Invalid choice. Please select a valid option.")
+    guessed_locations = set()
     board_player = [['-' for _ in range(5)] for _ in range(5)]
     board_computer = [['-' for _ in range(5)] for _ in range(5)]
     
@@ -153,7 +158,7 @@ def main():
             print(f"Turn {turn + 1}")
 
             # Player's Turn
-            player_turn(board_player, board_computer, computer_ships)
+            player_turn(board_player, board_computer, computer_ships, guessed_locations)
 
             if not computer_ships:
                 print("You win! You've destroyed all of the computer's ships.")
