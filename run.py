@@ -76,7 +76,7 @@ def validate_guess(guesses_made):
             except ValueError:
                 print(UP_FRONT_LINE + LINE_FLUSH + "Invalid input! Choose 0-4!")
                 continue
-            if row not in range(5):  # Change this range from 4 to 5 to allow entering '4'.
+            if row not in range(5):  
                 print(UP_FRONT_LINE + LINE_FLUSH + "Invalid input! Choose 0-4!")
                 continue
             break
@@ -87,7 +87,7 @@ def validate_guess(guesses_made):
             except ValueError:
                 print(UP_FRONT_LINE + LINE_FLUSH + "Invalid input! Choose 0-4!")
                 continue
-            if col not in range(5):  # Change this range from 4 to 5 to allow entering '4'.
+            if col not in range(5):  
                 print(UP_FRONT_LINE + LINE_FLUSH + "Invalid input! Choose 0-4!")
                 continue
             break
@@ -98,6 +98,29 @@ def validate_guess(guesses_made):
     return row, col
 
 def main():
+    while True:
+        clear()
+        print("Welcome to Battleship!")
+        print("1. Easy")
+        print("2. Medium")
+        print("3. Hard")
+        print("4. Quit")
+        choice = input("Enter the number of your choice: ")
+
+        if choice == "1":
+            turns = 10  # Adjust the number of turns or other game parameters for the easy difficulty level.
+            break
+        elif choice == "2":
+            turns = 8  # Adjust parameters for medium difficulty.
+            break
+        elif choice == "3":
+            turns = 6  # Adjust parameters for hard difficulty.
+            break
+        elif choice == "4":
+            print("Goodbye!")
+            return
+        else:
+            print("Invalid choice. Please select a valid option.")
     board_player = [['-' for _ in range(5)] for _ in range(5)]
     board_computer = [['-' for _ in range(5)] for _ in range(5)]
     
