@@ -15,11 +15,21 @@ def place_ship(board, ship_symbol):
             row = int(input(f"Enter the row to place your {ship_symbol} (0-4): "))
             col = int(input(f"Enter the column to place your {ship_symbol} (0-4): "))
             if 0 <= row <= 4 and 0 <= col <= 4 and board[row][col] == '-':
+                board[row][col] = ship_symbol
                 return (row, col)
             else:
                 print("Invalid placement. Try again.")
         except ValueError:
             print("Invalid input. Enter numbers between 0 and 4.")
+
+def place_computer_ships(board, ships):
+    for ship in ships:
+        while True:
+            row = random.randint(0, 4)
+            col = random.randint(0, 4)
+            if board[row][col] == '-':
+                board[row][col] = ship
+                break
 
 def display_boards(player_board, computer_board, message):
     player_title = "Player's Board"
@@ -140,20 +150,26 @@ def main():
             print("Goodbye!")
             return
         else:
-            print("Invalid choice. Please select a valid option")
+            print("Invalid choice. Please select a valid option.")
+
+    # Place the player's ships on the board
+    for ship_symbol in player_ships:
+        display_boards(board_player, board_computer, f"Place your ship: {ship_symbol}")
+        place_ship(board_player, ship_symbol)
+        clear()
+        print_board(board_player)
+
+    # Place the computer's ships on the board
+    place_computer_ships(board_computer, computer_ships)
 
     playing = True
     while playing:
         for turn in range(turns):
             print(f"Turn {turn + 1}")
 
-            for ship_symbol in player_ships:
-                display_boards(board_player, board_computer, "Place your ship: " + ship_symbol)
-                place_ship(board_player, ship_symbol)  # This line was indented incorrectly
-                clear()
-
             # Player's Turn
             player_turn(board_player, board_computer, computer_ships, guessed_locations)
+            print_board(board_player)
 
             if not computer_ships:
                 print("You win! You've destroyed all of the computer's ships.")
@@ -162,6 +178,7 @@ def main():
 
             # Computer Turn
             computer_turn(board_player, board_computer, player_ships)
+            print_board(board_player) 
 
             if not player_ships:
                 print("Computer wins! It has destroyed all of your ships.")
