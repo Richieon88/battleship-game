@@ -163,8 +163,10 @@ def main():
     place_computer_ships(board_computer, computer_ships)
 
     playing = True
+    turn = 0
     while playing:
         for turn in range(turns):
+            turn += 1
             print(f"Turn {turn + 1}")
 
             # Player's Turn
