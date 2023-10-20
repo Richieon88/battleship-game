@@ -257,13 +257,11 @@ def main():
                     "You are out of turns! Game Over!", turns_left)
                 playing = False
                 break
-            # print(f"Turn {turn + 1}")
-
+        
             # Player's Turn
             player_turn(board_player, board_computer,
                         computer_ships, guessed_locations, turns_left)
             turns_left -= 1
-            # print_board(board_player)
 
             if not computer_ships:
                 display_boards(
@@ -276,14 +274,12 @@ def main():
             # Computer Turn
             computer_turn(board_player, board_computer,
                           player_ships, turns_left)
-            # print_board(board_player)
 
             if not player_ships:
                 display_boards(
                     board_player, board_computer,
                     "Computer wins! It has destroyed all of your ships.",
                     turns_left)
-                # print("Computer wins! It has destroyed all of your ships.")
                 playing = False
                 break
 
