@@ -71,7 +71,7 @@ def player_turn(
             board_player, board_computer,
             "You have already guessed this location!", turns)
     elif target in computer_ships:
-        board_computer[player_guess_row][player_guess_col] = "☠️"
+        board_computer[player_guess_row][player_guess_col] = "✅"
         computer_ships.remove(target)
         guessed_locations.add((player_guess_row, player_guess_col))
         display_boards(board_player, board_computer,
@@ -89,12 +89,12 @@ def computer_turn(board_player, board_computer, player_ships, turns):
         computer_guess_row = random.randint(0, 4)
         computer_guess_col = random.randint(0, 4)
         if board_player[computer_guess_row][computer_guess_col] not in {
-                "☠️", "❎"}:
+                "✅", "❎"}:
             break
 
     target = board_player[computer_guess_row][computer_guess_col]
     if target in player_ships:
-        board_player[computer_guess_row][computer_guess_col] = "☠️"
+        board_player[computer_guess_row][computer_guess_col] = "✅"
         player_ships.remove(target)
         display_boards(board_player, board_computer,
                        "Computer hit your battleship!", turns)
