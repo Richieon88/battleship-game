@@ -4,15 +4,24 @@ from time import sleep
 
 
 def clear():
+    """
+    Clears the console screen.
+    """
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
 def print_board(board):
+    """
+    Prints the boards used for the game.
+    """
     for row in board:
         print(" ".join(row))
 
 
 def place_ship(board, ship_symbol):
+    """
+    Handles the user input for placing their ships on the board.
+    """
     while True:
         try:
             row = int(
@@ -31,6 +40,9 @@ def place_ship(board, ship_symbol):
 
 
 def place_computer_ships(board, ships):
+    """
+    Randomly generates a place for computer ships.
+    """
     for ship in ships:
         while True:
             row = random.randint(0, 4)
@@ -41,15 +53,15 @@ def place_computer_ships(board, ships):
 
 
 def display_boards(player_board, computer_board, message, turns):
+    """
+    Displays the game boards for both the player and computer, along with a message.
+    """
     player_title = "Player's Board"
     computer_title = "Computer's Board"
     clear()
     print(f"{player_title:15}{' ' * 5}{computer_title}")
     print(f"Turns left: {turns}")
     for player_row, computer_row in zip(player_board, computer_board):
-        # for i, el in enumerate(computer_row):
-        #     if el == "C1" or el == "C2" or el == "C3":
-        #         computer_row[i] = "⬜"
         player_row_str = ' '.join(player_row)
         player_row_str = player_row_str.replace("P1", "🚢").replace("P2", "🚢").replace("P3", "🚢")
         computer_row_str = ' '.join(computer_row)
@@ -61,6 +73,9 @@ def display_boards(player_board, computer_board, message, turns):
 def player_turn(
         board_player, board_computer, computer_ships, guessed_locations, turns
         ):
+    """
+    Manages the player's turn in the game, including handling guesses and updating the boards.
+    """
     display_boards(board_player, board_computer, "Your turn", turns)
     player_guess_row, player_guess_col = validate_guess(guessed_locations)
 
@@ -83,6 +98,9 @@ def player_turn(
 
 
 def computer_turn(board_player, board_computer, player_ships, turns):
+    """
+    Simulates the computer's turn in the game, including generating guesses and updating the boards.
+    """
     display_boards(board_player, board_computer, "Computer's Turn", turns)
     sleep(2)
     while True:
@@ -106,6 +124,9 @@ def computer_turn(board_player, board_computer, player_ships, turns):
 
 
 def validate_guess(guessed_locations):
+    """
+    Validates the row and column input for a player's guess, ensuring it's within the valid range.
+    """
     LINE_FLUSH = '\r\033[K'
     UP_FRONT_LINE = '\033[F'
     while True:
@@ -149,6 +170,9 @@ def validate_guess(guessed_locations):
 
 
 def setup_game():
+    """
+    Sets up the game by initializing the game boards, player and computer ships, and guessed locations.
+    """
     guessed_locations = set()
 
     board_player = [['⬜' for _ in range(5)] for _ in range(5)]
@@ -164,6 +188,9 @@ def setup_game():
 
 
 def main():
+    """
+    The main function that orchestrates the Battleship game, allowing the player to choose difficulty and play the game.
+    """
     while True:
         clear()
         print("Welcome to Battleship!")
