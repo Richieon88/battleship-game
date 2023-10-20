@@ -76,7 +76,7 @@ def computer_turn(board_player, board_computer, player_ships):
         display_boards(board_player, board_computer, "Computer hit your battleship!")
         sleep(2)
     else:
-        board_player[computer_guess_row][computer_guess_col] = "X"  # Add this line
+        board_player[computer_guess_row][computer_guess_col] = "X"
         display_boards(board_player, board_computer, "Computer missed!")
         sleep(2)
 
