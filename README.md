@@ -78,3 +78,23 @@ The application was tested manually during the whole development process. On bot
 
 ### Remaining Bugs
 -None.
+
+
+## Deployment:
+
+- The application has been deployed to Heroku using Code Institute's mock terminal. The steps taken were:
+
+### Heroku:
+- Open the "new" menu and click on "Create new app".
+- Fill form fields with app name and region (Europe) depends on where are you live. Click on "Create app".
+- In the "Settings" section, click on "Add buildpack" and add Python and NodeJS, in that order.
+- In "Settings" section, click "convig vars" and add to Key - PORT and Value - 8000. 
+- In "Deployment method", select the GitHub option and provide the repository details. Click on "Connect".
+- Click on "Deploy Branch" with comprahending repository.
+
+- The live link can be found here - https://battleship-game-project3-826e2c910f96.herokuapp.com/
+
+## Credits:
+
+- Code Institue for the deployment terminal.
+- The emojis used in the game were got from - https://emojipedia.org/
