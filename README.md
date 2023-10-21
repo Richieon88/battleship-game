@@ -15,3 +15,39 @@ It is played against a computer opponent in the Code Institute mock terminal on 
 - If your guess is a miss, the corresponding position on the guess board will show "❎".
 - If your guess is a hit, the corresponding position on the guess board will show "✅".
 - The game ends when either you or the AI destroys all the opponent's ships, or you run out of turns.
+
+### Features
+- #### Existing Features
+
+- ##### Difficulty menu.
+The game offers players the option to choose from different difficulty levels to tailor their gaming experience: Easy(10 Turns), Medium(8 Turns) and Hard(6 turns)
+
+![Difficulty menu](assets/images/difficulty_menu.png)
+
+- ##### Manual Ship Placement.
+The player places their ships on their board by entering a number from 0-4 for both row and column.
+
+![Ship placement screenshot](assets/images/ship_placement.png)
+
+- ##### Computer Opponent.
+The player plays against a computer opponent who randomly places their ships on the computer board.
+
+- ##### Visually engaging boards.
+The boards are made using emojis, to make it more visually appealing. The icons for ships, hits and misses also use emoji.
+
+![Board display screenshot](assets/images/board_display_screenshot.png)
+
+- ##### Input validation.
+The game checks for valid inputs, such as ensuring that row and column coordinates provided by the player are within the allowable game board range (0-4). This prevents accidental or intentional entry of invalid data. It does the same for difficulty choice and guesses.
+
+![Input Validation](assets/images/input_validation.png)
+
+- ##### Exit manu.
+At the end of the game the player has the choice to play again or exit the game.
+
+![Exit menu screenshot](assets/images/exit_menu.png)
+
+- #### Future Features
+- Allow the option to choose board size.
+- Allow the the option for more ships.
+- Have ships that take uo more than one space on the board.
