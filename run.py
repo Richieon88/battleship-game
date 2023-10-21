@@ -54,7 +54,8 @@ def place_computer_ships(board, ships):
 
 def display_boards(player_board, computer_board, message, turns):
     """
-    Displays the game boards for both the player and computer, along with a message.
+    Displays the game boards for both the player and computer,
+     along with a message.
     """
     player_title = "Player's Board"
     computer_title = "Computer's Board"
@@ -74,7 +75,8 @@ def player_turn(
         board_player, board_computer, computer_ships, guessed_locations, turns
         ):
     """
-    Manages the player's turn in the game, including handling guesses and updating the boards.
+    Manages the player's turn in the game,
+    including handling guesses and updating the boards.
     """
     display_boards(board_player, board_computer, "Your turn", turns)
     player_guess_row, player_guess_col = validate_guess(guessed_locations)
@@ -99,7 +101,8 @@ def player_turn(
 
 def computer_turn(board_player, board_computer, player_ships, turns):
     """
-    Simulates the computer's turn in the game, including generating guesses and updating the boards.
+    Simulates the computer's turn in the game,
+    including generating guesses and updating the boards.
     """
     display_boards(board_player, board_computer, "Computer's Turn", turns)
     sleep(2)
@@ -125,7 +128,8 @@ def computer_turn(board_player, board_computer, player_ships, turns):
 
 def validate_guess(guessed_locations):
     """
-    Validates the row and column input for a player's guess, ensuring it's within the valid range.
+    Validates the row and column input for a player's guess,
+    ensuring it's within the valid range.
     """
     LINE_FLUSH = '\r\033[K'
     UP_FRONT_LINE = '\033[F'
@@ -171,7 +175,8 @@ def validate_guess(guessed_locations):
 
 def setup_game():
     """
-    Sets up the game by initializing the game boards, player and computer ships, and guessed locations.
+    Sets up the game by initializing the game boards,
+    player and computer ships, and guessed locations.
     """
     guessed_locations = set()
 
@@ -189,7 +194,8 @@ def setup_game():
 
 def main():
     """
-    The main function that orchestrates the Battleship game, allowing the player to choose difficulty and play the game.
+    The main function that orchestrates the Battleship game,
+    allowing the player to choose difficulty and play the game.
     """
     while True:
         clear()
@@ -257,7 +263,6 @@ def main():
                     "You are out of turns! Game Over!", turns_left)
                 playing = False
                 break
-        
             # Player's Turn
             player_turn(board_player, board_computer,
                         computer_ships, guessed_locations, turns_left)
