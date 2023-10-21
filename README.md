@@ -50,4 +50,31 @@ At the end of the game the player has the choice to play again or exit the game.
 - #### Future Features
 - Allow the option to choose board size.
 - Allow the the option for more ships.
-- Have ships that take uo more than one space on the board.
+- Have ships that take up more than one space on the board.
+
+### Testing
+The application was tested manually during the whole development process. On both the IDE used and Heroku.
+
+#### Manual Testing
+- ##### Difficulty menu.
+- All four options on the difficulty menu I manually tested and all four work as intended.
+- ##### Manual Ship Placement.
+- Tested to make sure all invalid inputs are handled correctly and correct inputs are working as intended.
+- ##### Win Conditions
+- Tested both player win scenario and computer win scenario and both work as intended.
+- #### Player Guesses
+- Test player input for guesses to make sure both valid and invalid inputs are handled correctly.
+- ##### Exit manu.
+- The exit menu has been tested for both play again and exit options and both work as intended.
+
+#### Validator Testing:
+- No errors were returned from the PEP8 validator.
+
+
+#### Bugs:
+### Solved Bugs
+- Found a bug were row 4 of the board was deemed an invalid input.
+- I fixed it by adjusting the range allowed when entering inputs. 
+
+### Remaining Bugs
+-None.
