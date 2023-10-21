@@ -55,7 +55,7 @@ def place_computer_ships(board, ships):
 def display_boards(player_board, computer_board, message, turns):
     """
     Displays the game boards for both the player and computer,
-     along with a message.
+    along with a message.
     """
     player_title = "Player's Board"
     computer_title = "Computer's Board"
@@ -64,9 +64,20 @@ def display_boards(player_board, computer_board, message, turns):
     print(f"Turns left: {turns}")
     for player_row, computer_row in zip(player_board, computer_board):
         player_row_str = ' '.join(player_row)
-        player_row_str = player_row_str.replace("P1", "🚢").replace("P2", "🚢").replace("P3", "🚢")
+        player_row_str = (
+            player_row_str
+            .replace("P1", "🚢")
+            .replace("P2", "🚢")
+            .replace("P3", "🚢")
+        )
+
         computer_row_str = ' '.join(computer_row)
-        computer_row_str = computer_row_str.replace("C1", "⬜").replace("C2", "⬜").replace("C3", "⬜")
+        computer_row_str = (
+            computer_row_str
+            .replace("C1", "⬜")
+            .replace("C2", "⬜")
+            .replace("C3", "⬜")
+        )
         print(f"{player_row_str:15}{' ' * 5}{computer_row_str}")
     print(message)
 
